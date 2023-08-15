@@ -1,7 +1,7 @@
 {
   "name": "eleventy",
   "version": "1.0.0",
-  "description": "",
+  "description": "Main Eleventy Project with Handlebars and SCSS",
   "main": "index.js",
   "scripts": {
     "build": "eleventy",

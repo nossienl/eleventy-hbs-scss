@@ -20,9 +20,15 @@ module.exports = function(eleventyConfig) {
         // `compile` is called once per .scss file in the input directory
         compile: async function(inputContent, inputPath){
 
+            // console.log("inputPath", inputPath)
+            // console.log("inputContent", inputContent)
+
             let parsed = path.parse(inputPath);
 
+            console.log("parsed", parsed)
+
             if(parsed.name.startsWith("_")) {
+                console.log("skipping partial", inputPath)
                 return;
             }
 
@@ -42,11 +48,13 @@ module.exports = function(eleventyConfig) {
         }
     });
 
-    // copy scripts folder to _site
-    eleventyConfig.addPassthroughCopy("src/assets/scripts");
+    // copy js folder to _site
+    eleventyConfig.addPassthroughCopy("src/assets/js");
 
     // Add Global Data
     eleventyConfig.addGlobalData("siteTitle", "Eleventy HBS & SCSS Starter");
+
+    eleventyConfig.addGlobalData("currentYear", new Date().getFullYear() );
 
     return {
         dir: {
