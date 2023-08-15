@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>{{siteTitle}} - {{ pageTitle }}</title>
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+</head>
+<body>
+{{> components/header }}
+
+<main>
+    {{{ content  }}} <!-- This is where the content of individual pages will be inserted -->
+</main>
+
+{{> components/footer }}
+
+<script src="/assets/scripts/main.js"></script>
+</body>
+</html>

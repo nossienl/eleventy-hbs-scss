@@ -1,0 +1,21 @@
+{
+  "name": "eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "sass": "^1.65.1"
+  }
+}
