@@ -3,12 +3,11 @@ const path = require("node:path");
 const eq = require('./src/_helpers/eq.js');
 
 module.exports = function(eleventyConfig) {
+    // Process .hbs (Handlebars) files
+    eleventyConfig.setTemplateFormats("hbs");
 
     // Process .scss files
     eleventyConfig.addTemplateFormats("scss");
-
-    // Process .hbs (Handlebars) files
-    eleventyConfig.setTemplateFormats("hbs");
 
     // Add Handlebars helpers
     eq(eleventyConfig);
@@ -20,15 +19,9 @@ module.exports = function(eleventyConfig) {
         // `compile` is called once per .scss file in the input directory
         compile: async function(inputContent, inputPath){
 
-            // console.log("inputPath", inputPath)
-            // console.log("inputContent", inputContent)
-
             let parsed = path.parse(inputPath);
 
-            console.log("parsed", parsed)
-
             if(parsed.name.startsWith("_")) {
-                console.log("skipping partial", inputPath)
                 return;
             }
 
@@ -54,12 +47,14 @@ module.exports = function(eleventyConfig) {
     // Add Global Data
     eleventyConfig.addGlobalData("siteTitle", "Eleventy HBS & SCSS Starter");
 
+    // Add Global Data - Current Year
     eleventyConfig.addGlobalData("currentYear", new Date().getFullYear() );
 
     return {
         dir: {
             input: "src",
-            output: "dist"
+            output: "dist",
+            templateFormats: ["hbs"]
         }
     }
 };
